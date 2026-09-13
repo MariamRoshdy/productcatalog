@@ -1,0 +1,50 @@
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: vars.$color-text;
+  background-color: vars.$color-background;
+}
+
+.button {
+  @include mix.button-base;
+  text-decoration: none;
+
+  &--primary {
+    background-color: vars.$color-primary;
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background-color: vars.$color-primary-dark;
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    border-color: vars.$color-border;
+    color: vars.$color-text;
+
+    &:hover:not(:disabled) {
+      background-color: vars.$color-background;
+    }
+  }
+
+  &--danger {
+    background-color: transparent;
+    border-color: vars.$color-danger;
+    color: vars.$color-danger;
+
+    &:hover:not(:disabled) {
+      background-color: vars.$color-danger;
+      color: #ffffff;
+    }
+  }
+}

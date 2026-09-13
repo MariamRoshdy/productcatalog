@@ -1,0 +1,22 @@
+@use 'variables' as vars;
+
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: vars.$spacing-md vars.$spacing-lg;
+  background-color: vars.$color-surface;
+  border-bottom: 1px solid vars.$color-border;
+
+  &__brand {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: vars.$color-text;
+    text-decoration: none;
+  }
+}
+
+.app-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: vars.$spacing-lg;
+}

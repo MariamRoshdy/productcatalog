@@ -1,0 +1,73 @@
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+.product-list {
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: vars.$spacing-lg;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  &__status {
+    padding: vars.$spacing-xl;
+    color: vars.$color-text-muted;
+    text-align: center;
+
+    &--error {
+      color: vars.$color-danger;
+    }
+  }
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  @include mix.card;
+
+  th,
+  td {
+    padding: vars.$spacing-md;
+    text-align: left;
+    border-bottom: 1px solid vars.$color-border;
+    vertical-align: top;
+  }
+
+  th {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: vars.$color-text-muted;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  &__name {
+    display: block;
+    font-weight: 500;
+  }
+
+  &__description {
+    display: block;
+    margin-top: vars.$spacing-xs;
+    font-size: 0.85rem;
+    color: vars.$color-text-muted;
+  }
+
+  &__actions-header {
+    text-align: right;
+  }
+
+  &__actions {
+    display: flex;
+    gap: vars.$spacing-sm;
+    justify-content: flex-end;
+  }
+}

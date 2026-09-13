@@ -1,0 +1,45 @@
+<section class="product-list">
+  <div class="product-list__toolbar">
+    <h1 class="product-list__title">Products</h1>
+    <a class="button button--primary" routerLink="/products/new">Add product</a>
+  </div>
+
+  @if (isLoading) {
+    <p class="product-list__status">Loading…</p>
+  } @else if (errorMessage) {
+    <p class="product-list__status product-list__status--error">{{ errorMessage }}</p>
+  } @else if (products.length === 0) {
+    <p class="product-list__status">No products yet. Add your first one to get started.</p>
+  } @else {
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th class="product-table__actions-header">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of products; track product.id) {
+          <tr>
+            <td>
+              <span class="product-table__name">{{ product.name }}</span>
+              @if (product.description) {
+                <span class="product-table__description">{{ product.description }}</span>
+              }
+            </td>
+            <td>{{ product.price | currency }}</td>
+            <td>{{ product.stockQuantity }}</td>
+            <td>
+              <div class="product-table__actions">
+                <a class="button button--ghost" [routerLink]="['/products', product.id, 'edit']">Edit</a>
+                <button class="button button--danger" type="button" (click)="deleteProduct(product)">Delete</button>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>

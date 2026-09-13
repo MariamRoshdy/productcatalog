@@ -1,0 +1,28 @@
+@use 'variables' as vars;
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: vars.$spacing-xs;
+  padding: vars.$spacing-sm vars.$spacing-md;
+  border: 1px solid transparent;
+  border-radius: vars.$radius;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin card {
+  background-color: vars.$color-surface;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius;
+  box-shadow: vars.$shadow-sm;
+}

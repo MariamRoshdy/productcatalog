@@ -1,0 +1,74 @@
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+.product-form {
+  max-width: 640px;
+
+  &__title {
+    margin: 0 0 vars.$spacing-lg;
+    font-size: 1.5rem;
+  }
+
+  &__error {
+    padding: vars.$spacing-sm vars.$spacing-md;
+    margin-bottom: vars.$spacing-md;
+    color: vars.$color-danger;
+    background-color: rgba(220, 38, 38, 0.08);
+    border-radius: vars.$radius;
+  }
+
+  &__body {
+    @include mix.card;
+    padding: vars.$spacing-lg;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: vars.$spacing-sm;
+    margin-top: vars.$spacing-lg;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: vars.$spacing-md;
+
+  label {
+    margin-bottom: vars.$spacing-xs;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: vars.$color-text-muted;
+  }
+
+  input,
+  textarea {
+    padding: vars.$spacing-sm;
+    border: 1px solid vars.$color-border;
+    border-radius: vars.$radius;
+    font: inherit;
+    color: vars.$color-text;
+
+    &:focus {
+      outline: none;
+      border-color: vars.$color-primary;
+      box-shadow: 0 0 0 3px rgba(255, 122, 41, 0.15);
+    }
+  }
+
+  &__error {
+    margin-top: vars.$spacing-xs;
+    font-size: 0.8rem;
+    color: vars.$color-danger;
+  }
+}
+
+.form-row {
+  display: flex;
+  gap: vars.$spacing-md;
+
+  .form-field {
+    flex: 1;
+  }
+}
