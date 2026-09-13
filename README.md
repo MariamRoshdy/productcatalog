@@ -107,8 +107,3 @@ The clean seam for authentication is `Program.cs`. To add OpenID Connect:
 4. On the Angular side, add an HTTP interceptor that attaches the access token
    (e.g. via `angular-oauth2-oidc`).
 
-## Note
-
-These files were authored by hand and not compiled in the environment they were
-generated in. Run `dotnet restore` / `npm install` locally to pull dependencies
-before first build.
