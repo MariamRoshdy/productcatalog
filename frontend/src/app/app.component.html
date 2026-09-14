@@ -1,5 +1,14 @@
 <header class="app-header">
   <a class="app-header__brand" routerLink="/products">Product Catalog</a>
+
+  <div class="app-header__auth">
+    @if (isAuthenticated) {
+      <span class="app-header__user">{{ username }}</span>
+      <button class="button button--ghost" type="button" (click)="logout()">Log out</button>
+    } @else {
+      <button class="button button--primary" type="button" (click)="login()">Log in</button>
+    }
+  </div>
 </header>
 
 <main class="app-content">

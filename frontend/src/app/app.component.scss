@@ -6,6 +6,7 @@
   padding: vars.$spacing-md vars.$spacing-lg;
   background-color: vars.$color-surface;
   border-bottom: 1px solid vars.$color-border;
+  justify-content: space-between;
 
   &__brand {
     font-size: 1.25rem;
@@ -13,7 +14,19 @@
     color: vars.$color-text;
     text-decoration: none;
   }
+
+  &__auth {
+    display: flex;
+    align-items: center;
+    gap: vars.$spacing-md;
+  }
+
+  &__user {
+    font-size: 0.9rem;
+    color: vars.$color-text-muted;
+  }
 }
+
 
 .app-content {
   max-width: 960px;

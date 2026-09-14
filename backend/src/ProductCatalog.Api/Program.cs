@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ProductCatalog.Api.Data;
 using ProductCatalog.Api.Repositories;
 using ProductCatalog.Api.Services;
+using ProductCatalog.Api.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,9 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyMethod()));
 
+builder.Services.AddKeycloakAuthentication(builder.Configuration);
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 await ApplyMigrationsAsync(app);
@@ -38,6 +42,9 @@ else
 }
 
 app.UseCors(AngularCorsPolicy);
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();
 app.MapControllers();
 
 app.Run();
